@@ -217,7 +217,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
 vim.opt.undofile = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.opt.spell = true
 -- [[ Basic Keymaps ]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -246,8 +246,27 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    vimgrep_arguments = {
+      "rg",
+      "--follow",        -- Follow symbolic links
+      "--hidden",        -- Search for hidden files
+      "--no-heading",    -- Don't group matches by each file
+      "--with-filename", -- Print the file path with the matched lines
+      "--line-number",   -- Show line numbers
+      "--column",        -- Show column numbers
+      "--smart-case",    -- Smart case search
+
+      -- Exclude some patterns from search
+      "--glob=!**/.git/*",
+      "--glob=!**/.idea/*",
+      "--glob=!**/.vscode/*",
+      "--glob=!**/build/*",
+      "--glob=!**/dist/*",
+      "--glob=!**/yarn.lock",
+      "--glob=!**/package-lock.json",
+    },
     file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/", "%.jpg", "%.png" },
-  },
+    }
 }
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -449,7 +468,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--    ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,

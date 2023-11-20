@@ -28,10 +28,10 @@ return {
 -- Titus Custom
   "postfen/clipboard-image.nvim",
   "mbbill/undotree",
-  "wakatime/vim-wakatime",
-  "Pocco81/auto-save.nvim",
+--  "wakatime/vim-wakatime",
+--  "Pocco81/auto-save.nvim",
   "Pocco81/true-zen.nvim",
   "lambdalisue/suda.vim",
   "lunarvim/synthwave84.nvim",
-  "github/copilot.vim",
+--  "github/copilot.vim",
 }
