@@ -19,6 +19,8 @@ return {
   end
   };
   "jvgrootveld/telescope-zoxide",
+  "nvim-tree/nvim-web-devicons",
+  'ryanoasis/vim-devicons',
   -- Colorschemes
   "lunarvim/darkplus.nvim",
   "arcticicestudio/nord-vim",
