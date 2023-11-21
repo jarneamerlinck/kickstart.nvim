@@ -265,7 +265,7 @@ require('telescope').setup {
       "--glob=!**/yarn.lock",
       "--glob=!**/package-lock.json",
     },
-    file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/", "%.jpg", "%.png" },
+    file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "%.jpg", "%.png" },
     }
 }
 -- Enable telescope fzf native, if installed
