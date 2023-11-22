@@ -17,7 +17,17 @@ return {
     config = function ()
         require'alpha'.setup(require'alpha.themes.startify'.config)
   end
-  };
+  },
+  {
+  "iamcco/markdown-preview.nvim",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" },
+  },
+
   "jvgrootveld/telescope-zoxide",
   "nvim-tree/nvim-web-devicons",
   'ryanoasis/vim-devicons',
@@ -35,5 +45,6 @@ return {
   "Pocco81/true-zen.nvim",
   "lambdalisue/suda.vim",
   "lunarvim/synthwave84.nvim",
+  "natecraddock/workspaces.nvim"
 --  "github/copilot.vim",
 }

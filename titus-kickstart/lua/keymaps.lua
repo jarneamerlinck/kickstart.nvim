@@ -84,4 +84,8 @@ keymap("n", "<Leader>c", "<cmd> tabclose<CR>", opts)
 -- own Custom
 
 keymap("n", "T", ":split term://bash<CR>", opts)
+keymap("n", "<Leader>V", ":MarkdownPreview<CR>", opts)
 keymap("n", "<Leader>C", ":let @+=expand('%:p')<CR>", opts)
+
+keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
+

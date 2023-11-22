@@ -561,5 +561,14 @@ require 'synthwave84'.setup({
     buffer_inactive_target = true,
   }
 })
-
 vim.cmd[[colorscheme synthwave84]]
+
+require("telescope").load_extension "workspaces"
+require("workspaces").setup({
+    hooks = {
+        open = { "Telescope find_files" },
+    }
+})
+
+
+
