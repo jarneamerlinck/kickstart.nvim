@@ -4,5 +4,6 @@ This has gone through many versions from using vim to neovim and modifying this 
 
 
 ### Tools to include
-https://github.com/ryanoasis/vim-devicons
+- workspaces and sessions
+
 kitty [config](https://github.com/ChrisTitusTech/hyprland-titus/tree/main/dotconfig/kitty)
