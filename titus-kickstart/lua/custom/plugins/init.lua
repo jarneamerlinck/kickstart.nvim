@@ -28,7 +28,7 @@ return {
   ft = { "markdown" },
   },
 
-  "jvgrootveld/telescope-zoxide",
+  --"jvgrootveld/telescope-zoxide",
   "nvim-tree/nvim-web-devicons",
   'ryanoasis/vim-devicons',
   -- Colorschemes

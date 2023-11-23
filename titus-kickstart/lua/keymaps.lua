@@ -56,7 +56,7 @@ keymap("n", "<leader>a", ":Alpha<CR>", opts)
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files hidden=true no_ignore=true<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope zoxide list<CR>", opts)
+-- keymap("n", "<leader>fp", ":Telescope zoxide list<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<space>fe",  ":Telescope file_browser<CR>", opts)
 
