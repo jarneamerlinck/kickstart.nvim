@@ -246,7 +246,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-    vimgrep_arguments = {
+    vimgrep_arguments = { -- this is only for the ft function
       "rg",
       "--follow",        -- Follow symbolic links
       "--hidden",        -- Search for hidden files
