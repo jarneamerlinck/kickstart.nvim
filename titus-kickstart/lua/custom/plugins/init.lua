@@ -28,7 +28,7 @@ return {
   ft = { "markdown" },
   },
 
-  --"jvgrootveld/telescope-zoxide",
+  "jvgrootveld/telescope-zoxide",-- for jump alternative
   "nvim-tree/nvim-web-devicons",
   'ryanoasis/vim-devicons',
   -- Colorschemes
@@ -45,6 +45,6 @@ return {
   "Pocco81/true-zen.nvim",
   "lambdalisue/suda.vim",
   "lunarvim/synthwave84.nvim",
-  "natecraddock/workspaces.nvim"
---  "github/copilot.vim",
+  "natecraddock/workspaces.nvim",
+  'voldikss/vim-floaterm'-- for lazygit float term
 }
