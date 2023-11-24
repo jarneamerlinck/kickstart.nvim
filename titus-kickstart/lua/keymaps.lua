@@ -89,5 +89,5 @@ keymap("n", "<Leader>C", ":let @+=expand('%:p')<CR>", opts)
 
 keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
 
-keymap("n", "<Leader>G", ":FloatermNew lazygit<CR>", opts)
+keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", opts)
 
