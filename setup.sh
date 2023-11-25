@@ -8,7 +8,7 @@ rm -rf ~/.cache/nvim
 mkdir -p "$HOME/.vim/undodir"
 mkdir -p "$HOME/.scripts"
 cp "$gitpath/.ignore" "$HOME/.ignore"
-ln -s "$gitpath/kickstart.nvim" "$HOME/.config/nvim"
+ln -s "$gitpath/kickstart" "$HOME/.config/nvim"
 # Share system clipboard with unnamedplus
 
 
