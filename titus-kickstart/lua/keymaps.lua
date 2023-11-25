@@ -82,12 +82,14 @@ keymap("n", "<Leader>c", "<cmd> tabclose<CR>", opts)
 
 
 -- own Custom
-
+-- term commands
 keymap("n", "T", ":split term://bash<CR>", opts)
+keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
+
 keymap("n", "<Leader>V", ":MarkdownPreview<CR>", opts)
 keymap("n", "<Leader>C", ":let @+=expand('%:p')<CR>", opts)
-
 keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
 
 keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", opts)
+keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
 
