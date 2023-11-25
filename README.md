@@ -1,9 +1,9 @@
-## Titus's Neovim Adventure
+## Kickstart nvim
 
-This has gone through many versions from using vim to neovim and modifying this repo to travel through all the iterations through out the years. I've pretty much found my resting spot using the [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) project from one of the creators of the official neovim project. 
+Source is [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) (but started from [ChrisTitusTech/neovim](https://github.com/ChrisTitusTech/neovim))
 
 
-### Tools to include
+### Run setup.sh to fully install it
 - workspaces and sessions
 
 kitty [config](https://github.com/ChrisTitusTech/hyprland-titus/tree/main/dotconfig/kitty)
