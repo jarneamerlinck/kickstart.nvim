@@ -87,9 +87,21 @@ keymap("n", "T", ":split term://bash<CR>", opts)
 keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
 
 keymap("n", "<Leader>V", ":MarkdownPreview<CR>", opts)
-keymap("n", "<Leader>C", ":let @+=expand('%:p')<CR>", opts)
+keymap("n", "<Leader>P", ":let @+=expand('%:p')<CR>", opts)
 keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
 
 keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", opts)
 keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
+
+-- compiler commands
+
+keymap("n", "<Leader>C", "<cmd>CompilerOpen<cr>", opts)
+keymap("n", "<Leader>+c", "<cmd>CompilerToggleResults<cr>", opts)
+
+
+-- reset keymaps
+
+
+keymap("n", "<Leader>Ch", "<Nop>", opts)
+keymap("n", "<Leader>Cl", "<Nop>", opts)
 

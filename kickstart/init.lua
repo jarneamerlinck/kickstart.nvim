@@ -48,6 +48,9 @@ vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- suda nvim also before plugin is loaded
+vim.g.suda_smart_edit = 0
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -259,13 +262,18 @@ require('telescope').setup {
       -- Exclude some patterns from search
       "--glob=!**/.git/*",
       "--glob=!**/.idea/*",
-      "--glob=!**/.vscode/*",
+--      "--glob=!**/.vscode/*",
+      "--glob=!**/.tox/*",
+      "--glob=!**/.oh-my-zs/*",
       "--glob=!**/build/*",
       "--glob=!**/dist/*",
       "--glob=!**/yarn.lock",
       "--glob=!**/package-lock.json",
     },
-    file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "%.jpg", "%.png" },
+    file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "%.jpg", "%.png", 
+      --"%.vscode/", 
+      "%.tox/", 
+      "%.oh-my-zsh/" },
     }
 }
 -- Enable telescope fzf native, if installed
@@ -407,9 +415,11 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  --clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {
+    filetypes = {'py',  'ipynb'}
+  },
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -432,12 +442,34 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-    'bashls',
+--mason_lspconfig.setup {
+require('mason-tool-installer').setup {
+  --ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = {
+    -- languages
+    'bash-language-server',
     'luau_lsp',
+    'shellcheck',
+    'clang-format',
+    'cpplint',
+
+    -- markdown
+    -- 'marksman', -- needs cli tool
     'marksman',
-    'powershell_es',
+    'markdownlint',
+    --python
+    'yapf',
+    'python-lsp-server',
+    --docker /yaml
+    'docker-compose-language-service',
+    'dockerfile-language-server',
+    'yaml-language-server'
+
+  },
+  auto_update = false,
+  run_on_start = true,
+  start_delay = 3000, --3s delay on start
+
 }
 
 mason_lspconfig.setup_handlers {
@@ -457,6 +489,7 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
+
 
 cmp.setup {
   snippet = {
@@ -566,12 +599,88 @@ require 'synthwave84'.setup({
 })
 vim.cmd[[colorscheme synthwave84]]
 
+--workspaces
 require("telescope").load_extension "workspaces"
+
 require("workspaces").setup({
     hooks = {
         open = { "Telescope find_files" },
     }
 })
 
+-- auto format
+
+local format_on_save = require("format-on-save")
+local formatters = require("format-on-save.formatters")
+
+format_on_save.setup({
+  exclude_path_patterns = {
+    "/node_modules/",
+    ".local/share/nvim/lazy",
+  },
+  formatter_by_ft = {
+    css = formatters.lsp,
+    html = formatters.lsp,
+    java = formatters.lsp,
+    javascript = formatters.lsp,
+    json = formatters.lsp,
+    lua = formatters.lsp,
+    markdown = formatters.marksman,
+    --openscad = formatters.lsp,
+    python = formatters.black,
+    --rust = formatters.lsp,
+    --scad = formatters.lsp,
+    --scss = formatters.lsp,
+    --sh = formatters.shfmt,
+    --terraform = formatters.lsp,
+    --typescript = formatters.prettierd,
+    --typescriptreact = formatters.prettierd,
+    yaml = formatters.lsp,
 
 
+    -- Concatenate formatters
+   -- python = {
+   --   formatters.remove_trailing_whitespace,
+   --   --formatters.shell({ cmd = "tidy-imports" }),
+   --   formatters.yapf,
+   --   --formatters.ruff,
+   -- },
+  },
+  -- Optional: fallback formatter to use when no formatters match the current filetype
+  fallback_formatter = {
+    formatters.remove_trailing_whitespace,
+    formatters.remove_trailing_newlines,
+  },
+
+  -- By default, all shell commands are prefixed with "sh -c" (see PR #3)
+  -- To prevent that set `run_with_sh` to `false`.
+  run_with_sh = false
+})
+
+vim.g.doge_doc_standard_python = 'google'
+vim.g.mkdp_preview_options = {
+    mkit = {},
+    katex = {},
+    uml = {},
+    maid = {},
+    disable_sync_scroll = 0,
+    sync_scroll_type = 'middle',
+    hide_yaml_meta = 1,
+    sequence_diagrams = {},
+    flowchart_diagrams = {},
+    content_editable = false,
+    disable_filename = 0,
+    toc = {}
+}
+
+-- ipython notebooks
+-- NVIM-IPY 
+
+-- vim.g.nvim_ipy_perform_mappings = 0
+
+-- vim.g.ipy_celldef = '# %%'
+
+
+-- vim.cmd [[map <silent><c-s> <Plug>(IPy-Run)]]
+
+-- vim.cmd [[map <leader>rc <Plug>(IPy-RunCell)]]

@@ -14,4 +14,4 @@ ln -s "$gitpath/kickstart" "$HOME/.config/nvim"
 
 
 echo "nvim config package requirements"
-sudo apt install vim-gtk3 ripgrep fd-find xclip python3-venv luarocks golang-go shellcheck -y
+sudo apt install vim-gtk3 ripgrep fd-find xclip python3-venv luarocks golang-go shellcheck nmp -y
