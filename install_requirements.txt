@@ -1,0 +1,9 @@
+vim-gtk3
+ripgrep
+fd-find
+xclip
+python3-venv
+luarocks
+golang-go
+shellcheck
+nmp
