@@ -11,8 +11,8 @@
   xdg.configFile."nvim" = {
        source = lib.cleanSource ./kickstart;
        target = "nvim";
-
    };
+
 
   home = {
     shellAliases = {
