@@ -7,15 +7,7 @@
     zsh = {
       initExtraBeforeCompInit = ''
       eval "$(zoxide init zsh)"
-      if [ -n "${commands[fzf-share]}" ]; then
-        source "$(fzf-share)/key-bindings.zsh"
-        source "$(fzf-share)/completion.zsh"
-      fi
       '';
-    };
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
     };
   };
   xdg.configFile."nvim" = {
