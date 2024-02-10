@@ -36,11 +36,9 @@
       lazygit
 
     ];
-  };
-  programs.neovim.extraConfig = ''
-      mkdir -p ~/.config
-      touch ~/.demo_was_this_here
-      git clone https://github.com/jarneamerlinck/kickstart.nvim ~/.config/nvim
+    xdg.configFile."nvim" = {
+       source = lib.cleanSource ./kickstart.nvim;
 
-    '';
+    }
+  };
 }
