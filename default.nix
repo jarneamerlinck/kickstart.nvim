@@ -8,6 +8,12 @@
     eval "$(zoxide init zsh)"
     '';
   };
+  xdg.configFile."nvim" = {
+       source = lib.cleanSource ./kickstart;
+       target = "nvim";
+
+   };
+
   home = {
     shellAliases = {
       v="nvim";
@@ -19,7 +25,6 @@
     };
     packages = with pkgs; [
       neovim
-      ripgrep
       xclip
       lua
       luarocks
@@ -29,16 +34,15 @@
       gcc
       clangStdenv
       python39
+      yarn
+
       fzf
       zoxide
 
+      ripgrep
       vimPlugins.telescope-fzf-native-nvim
       lazygit
 
     ];
-    xdg.configFile."nvim" = {
-       source = lib.cleanSource ./kickstart.nvim;
-
-    }
   };
 }
