@@ -7,3 +7,11 @@ Source is [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) (but star
 - workspaces and sessions
 
 kitty [config](https://github.com/ChrisTitusTech/hyprland-titus/tree/main/dotconfig/kitty)
+
+- install commands
+
+´´´bash
+git clone https://github.com/jarneamerlinck/kickstart.nvim;
+cd kickstart.nvim;
+
+´´´

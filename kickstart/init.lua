@@ -94,7 +94,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -118,7 +118,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -132,7 +132,8 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
+          { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
         vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
       end,
@@ -185,7 +186,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -251,18 +252,18 @@ require('telescope').setup {
     },
     vimgrep_arguments = { -- this is only for the ft function
       "rg",
-      "--follow",        -- Follow symbolic links
-      "--hidden",        -- Search for hidden files
-      "--no-heading",    -- Don't group matches by each file
-      "--with-filename", -- Print the file path with the matched lines
-      "--line-number",   -- Show line numbers
-      "--column",        -- Show column numbers
-      "--smart-case",    -- Smart case search
+      "--follow",         -- Follow symbolic links
+      "--hidden",         -- Search for hidden files
+      "--no-heading",     -- Don't group matches by each file
+      "--with-filename",  -- Print the file path with the matched lines
+      "--line-number",    -- Show line numbers
+      "--column",         -- Show column numbers
+      "--smart-case",     -- Smart case search
 
       -- Exclude some patterns from search
       "--glob=!**/.git/*",
       "--glob=!**/.idea/*",
---      "--glob=!**/.vscode/*",
+      --      "--glob=!**/.vscode/*",
       "--glob=!**/.tox/*",
       "--glob=!**/.oh-my-zs/*",
       "--glob=!**/build/*",
@@ -270,11 +271,11 @@ require('telescope').setup {
       "--glob=!**/yarn.lock",
       "--glob=!**/package-lock.json",
     },
-    file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "%.jpg", "%.png", 
-      --"%.vscode/", 
-      "%.tox/", 
+    file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "%.jpg", "%.png",
+      --"%.vscode/",
+      "%.tox/",
       "%.oh-my-zsh/" },
-    }
+  }
 }
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -418,7 +419,7 @@ local servers = {
   --clangd = {},
   -- gopls = {},
   pyright = {
-    filetypes = {'py',  'ipynb'}
+    filetypes = { 'py', 'ipynb' }
   },
   -- rust_analyzer = {},
   -- tsserver = {},
@@ -501,7 +502,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    --    ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -538,11 +539,11 @@ cmp.setup {
 ---
 -- Titus Custom Markdown HUGO Image Insert
 ---
-require'clipboard-image'.setup {
+require 'clipboard-image'.setup {
   markdown = {
-   img_dir = {"content/images", "%:p:h:t", "%:t:r"},
-   img_dir_txt = {"/images", "%:p:h:t", "%:t:r"},
-   img_name = function ()
+    img_dir = { "content/images", "%:p:h:t", "%:t:r" },
+    img_dir_txt = { "/images", "%:p:h:t", "%:t:r" },
+    img_name = function()
       vim.fn.inputsave()
       local name = vim.fn.input('Name: ')
       vim.fn.inputrestore()
@@ -558,7 +559,7 @@ require'clipboard-image'.setup {
 -- Useful for easily creating commands
 local z_utils = require("telescope._extensions.zoxide.utils")
 
-require('telescope').setup{
+require('telescope').setup {
   -- (other Telescope configuration...)
   extensions = {
     zoxide = {
@@ -580,7 +581,7 @@ require('telescope').setup{
       }
     },
     file_browser = {
-      hidden= true,
+      hidden = true,
       hijack_netrw = true
     }
   }
@@ -597,15 +598,15 @@ require 'synthwave84'.setup({
     buffer_inactive_target = true,
   }
 })
-vim.cmd[[colorscheme synthwave84]]
+vim.cmd [[colorscheme synthwave84]]
 
 --workspaces
 require("telescope").load_extension "workspaces"
 
 require("workspaces").setup({
-    hooks = {
-        open = { "Telescope find_files" },
-    }
+  hooks = {
+    open = { "Telescope find_files" },
+  }
 })
 
 -- auto format
@@ -639,12 +640,12 @@ format_on_save.setup({
 
 
     -- Concatenate formatters
-   -- python = {
-   --   formatters.remove_trailing_whitespace,
-   --   --formatters.shell({ cmd = "tidy-imports" }),
-   --   formatters.yapf,
-   --   --formatters.ruff,
-   -- },
+    -- python = {
+    --   formatters.remove_trailing_whitespace,
+    --   --formatters.shell({ cmd = "tidy-imports" }),
+    --   formatters.yapf,
+    --   --formatters.ruff,
+    -- },
   },
   -- Optional: fallback formatter to use when no formatters match the current filetype
   fallback_formatter = {
@@ -659,28 +660,16 @@ format_on_save.setup({
 
 vim.g.doge_doc_standard_python = 'google'
 vim.g.mkdp_preview_options = {
-    mkit = {},
-    katex = {},
-    uml = {},
-    maid = {},
-    disable_sync_scroll = 0,
-    sync_scroll_type = 'middle',
-    hide_yaml_meta = 1,
-    sequence_diagrams = {},
-    flowchart_diagrams = {},
-    content_editable = false,
-    disable_filename = 0,
-    toc = {}
+  mkit = {},
+  katex = {},
+  uml = {},
+  maid = {},
+  disable_sync_scroll = 0,
+  sync_scroll_type = 'middle',
+  hide_yaml_meta = 1,
+  sequence_diagrams = {},
+  flowchart_diagrams = {},
+  content_editable = false,
+  disable_filename = 0,
+  toc = {}
 }
-
--- ipython notebooks
--- NVIM-IPY 
-
--- vim.g.nvim_ipy_perform_mappings = 0
-
--- vim.g.ipy_celldef = '# %%'
-
-
--- vim.cmd [[map <silent><c-s> <Plug>(IPy-Run)]]
-
--- vim.cmd [[map <leader>rc <Plug>(IPy-RunCell)]]
