@@ -1,5 +1,3 @@
-packer_compiled.lua
-custom/plugin/packer_compiled.lua
-mingw-setup.exe
-*/lazy-lock.json
-
+tags
+.luarc.json
+/result
