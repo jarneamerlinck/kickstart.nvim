@@ -3,17 +3,29 @@ on:
   push:
     branches:
       - main
-      - develop
   pull_request:
     branches:
-      - main:
+      - main
+
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
+    # Cache Nix store and dependencies
+    - name: Cache Nix Store
+      uses: actions/cache@v3
+      with:
+        path: /nix/store
+        key: ${{ runner.os }}-nix-${{ hashFiles('**/flake.nix', '**/flake.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-nix-
+
     - uses: cachix/install-nix-action@v27
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    # Run the build and tests
     - run: nix build
     - run: nix flake check
