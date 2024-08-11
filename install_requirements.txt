@@ -1,7 +1,0 @@
-ripgrep
-xclip
-python3-venv
-luarocks
-golang-go
-shellcheck
-nodejs
