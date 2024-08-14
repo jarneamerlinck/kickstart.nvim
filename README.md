@@ -1,17 +1,11 @@
-## Kickstart nvim
+# Kickstart nvim
 
 Source is [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) (but started from [ChrisTitusTech/neovim](https://github.com/ChrisTitusTech/neovim))
 
+Has been conferted to nix with the template from [nixCats-nvim](https://github.com/BirdeeHub/nixCats-nvim)
 
-### Run setup.sh to fully install it
-- workspaces and sessions
+## Run in shell
 
-kitty [config](https://github.com/ChrisTitusTech/hyprland-titus/tree/main/dotconfig/kitty)
-
-- install commands
-
-´´´bash
-git clone https://github.com/jarneamerlinck/kickstart.nvim;
-cd kickstart.nvim;
-
-´´´
+```bash
+nix shell github:jarneamerlinck/kickstart.nvim
+```
