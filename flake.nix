@@ -206,18 +206,18 @@
       # this section is for environmentVariables that should be available
       # at RUN TIME for plugins. Will be available to path within neovim terminal
       environmentVariables = {
-        test = {
-          CATTESTVAR = "It worked!";
-        };
+        # test = {
+        #   CATTESTVAR = "It worked!";
+        # };
       };
 
       # If you know what these are, you can provide custom ones by category here.
       # If you dont, check this link out:
       # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
       extraWrapperArgs = {
-        test = [
-          '' --set CATTESTVAR2 "It worked again!"''
-        ];
+        # test = [
+        #   '' --set CATTESTVAR2 "It worked again!"''
+        # ];
       };
 
       # lists of the functions you would have passed to
@@ -278,7 +278,7 @@
           kickstart-gitsigns = true;
 
           # we can pass whatever we want actually.
-          have_nerd_font = false;
+          have_nerd_font = true;
 
           example = {
             youCan = "add more than just booleans";

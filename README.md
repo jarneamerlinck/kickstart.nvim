@@ -9,3 +9,8 @@ Has been conferted to nix with the template from [nixCats-nvim](https://github.c
 ```bash
 nix shell github:jarneamerlinck/kickstart.nvim
 ```
+
+## Run and open nvim
+```bash
+nix run "github:jarneamerlinck/kickstart.nvim"
+```
