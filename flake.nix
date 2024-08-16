@@ -96,7 +96,6 @@
       # and neovim path when using nix develop
       propagatedBuildInputs = {
         generalBuildInputs = with pkgs; [
-          yarn
         ];
       };
 
@@ -106,6 +105,8 @@
       # this includes LSPs
       lspsAndRuntimeDeps = with pkgs; {
         general = [
+          yarn
+
           zoxide
           universal-ctags
           ripgrep
