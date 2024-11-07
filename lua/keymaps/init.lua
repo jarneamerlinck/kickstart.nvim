@@ -105,5 +105,9 @@ keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", op
 -- reset keymaps
 
 
+keymap("n", "gco", "<Nop>", opts)
+keymap("n", "gc0", "<Nop>", opts)
+keymap("n", "gcA", "<Nop>", opts)
+keymap("n", "<Leader>gco", "<Nop>", opts)
 -- keymap("n", "<Leader>Ch", "<Nop>", opts)
 -- keymap("n", "<Leader>Cl", "<Nop>", opts)

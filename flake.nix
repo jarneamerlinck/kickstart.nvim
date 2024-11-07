@@ -96,6 +96,8 @@
       # and neovim path when using nix develop
       propagatedBuildInputs = {
         generalBuildInputs = with pkgs; [
+          luajitPackages.luarocks
+          yarn
         ];
       };
 
@@ -106,6 +108,7 @@
       lspsAndRuntimeDeps = with pkgs; {
         general = [
           yarn
+          luajitPackages.luarocks
 
           zoxide
           universal-ctags
@@ -115,15 +118,18 @@
           stdenv.cc.cc
           nix-doc
           lua-language-server
-          nixd
           stylua
           lazygit
+          nil
+          nixd
         ];
         kickstart-debug = [
           delve
         ];
         kickstart-lint = [
           markdownlint-cli
+          nil
+          nixd
         ];
       };
 
