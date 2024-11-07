@@ -287,16 +287,16 @@
           # we can pass whatever we want actually.
           have_nerd_font = true;
 
-          example = {
-            youCan = "add more than just booleans";
-            toThisSet = [
-              "and the contents of this categories set"
-              "will be accessible to your lua with"
-              "nixCats('path.to.value')"
-              "see :help nixCats"
-              "and type :NixCats to see the categories set in nvim"
-            ];
-          };
+          # example = {
+          #   youCan = "add more than just booleans";
+          #   toThisSet = [
+          #     "and the contents of this categories set"
+          #     "will be accessible to your lua with"
+          #     "nixCats('path.to.value')"
+          #     "see :help nixCats"
+          #     "and type :NixCats to see the categories set in nvim"
+          #   ];
+          # };
         };
       };
     };
