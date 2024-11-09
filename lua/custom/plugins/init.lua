@@ -23,15 +23,12 @@ return {
       )
     end,
   },
-  "ahmedkhalf/project.nvim",        -- alpha dashboard
-  {
-    "iamcco/markdown-preview.nvim", -- markdown previewer
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
+  -- "ahmedkhalf/project.nvim",        -- alpha dashboard
+   {
+     "iamcco/markdown-preview.nvim",
+     config = function()
+       vim.fn["mkdp#util#install"]()
+     end,
   },
 
   "jvgrootveld/telescope-zoxide", -- for jump alternative
