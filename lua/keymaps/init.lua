@@ -37,7 +37,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+-- keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
 -- keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
@@ -70,8 +70,8 @@ keymap("n", "<space>fe", ":Telescope file_browser<CR>", opts)
 
 -- Custom
 keymap("n", "<leader>p", "<cmd> PasteImg <CR>", opts)
-keymap("n", "<leader>e", "$", opts)
-keymap("n", "S", "<cmd> %s//g", opts)
+-- keymap("n", "<leader>e", "$", opts)
+-- keymap("n", "S", "<cmd> %s//g", opts)
 keymap("n", "<F5>", "<cmd> UndotreeToggle <CR> <cmd> UndotreeFocus <CR>", opts)
 keymap("n", "<C-\\>", "<cmd> TZAtaraxis <CR>", opts)
 keymap("n", "<Leader>1", "1gt<CR>", opts)
@@ -81,7 +81,8 @@ keymap("n", "<Leader>4", "4gt<CR>", opts)
 keymap("n", "<Leader>5", "5gt<CR>", opts)
 keymap("n", "<Leader>t", "<cmd> tabnew<CR>", opts)
 keymap("n", "<Leader>c", "<cmd> tabclose<CR>", opts)
-
+keymap("n", "<leader>h", ":tabp<CR>", opts)
+keymap("n", "<leader>l", ":tabn<CR>", opts)
 
 
 
@@ -108,6 +109,6 @@ keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", op
 keymap("n", "gco", "<Nop>", opts)
 keymap("n", "gc0", "<Nop>", opts)
 keymap("n", "gcA", "<Nop>", opts)
-keymap("n", "<Leader>gco", "<Nop>", opts)
+-- keymap("n", "<Leader>gco", "<Nop>", opts)
 -- keymap("n", "<Leader>Ch", "<Nop>", opts)
 -- keymap("n", "<Leader>Cl", "<Nop>", opts)

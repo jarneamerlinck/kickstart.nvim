@@ -4,38 +4,36 @@
 -- See the kickstart.nvim README for more information
 return {
   -- Requirements for other packages
-  "nvim-tree/nvim-web-devicons",
-  "ryanoasis/vim-devicons",
+  'nvim-tree/nvim-web-devicons',
+  'ryanoasis/vim-devicons',
 
   -- Telescope
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },
   {
-    "goolord/alpha-nvim",
+    'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local startify = require("alpha.themes.startify")
-      require("alpha").setup(
-        startify.config
-      )
+      local startify = require 'alpha.themes.startify'
+      require('alpha').setup(startify.config)
     end,
   },
-   {
-     "iamcco/markdown-preview.nvim",
-     config = function()
-       vim.fn["mkdp#util#install"]()
-     end,
+  {
+    'iamcco/markdown-preview.nvim',
+    config = function()
+      vim.fn['mkdp#util#install']()
+    end,
   },
 
-  "jvgrootveld/telescope-zoxide", -- for jump alternative
-  "Pocco81/auto-save.nvim",       -- autosave all files when entering normal mode
-  "voldikss/vim-floaterm",        -- for lazygit float term
-  "RRethy/vim-illuminate",        -- Quick word search under cursor alt+p and alt+n
+  'jvgrootveld/telescope-zoxide', -- for jump alternative
+  'Pocco81/auto-save.nvim', -- autosave all files when entering normal mode
+  'voldikss/vim-floaterm', -- for lazygit float term
+  'RRethy/vim-illuminate', -- Quick word search under cursor alt+p and alt+n
 
-  "postfen/clipboard-image.nvim",
-  "mbbill/undotree", -- needed for with autosave
+  'postfen/clipboard-image.nvim',
+  'mbbill/undotree', -- needed for with autosave
 
   'hrsh7th/nvim-cmp',
   dependencies = {
