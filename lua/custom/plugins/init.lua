@@ -12,7 +12,17 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
-  "goolord/alpha-nvim",
+  {
+    "goolord/alpha-nvim",
+    -- dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local startify = require("alpha.themes.startify")
+      require("alpha").setup(
+        startify.config
+      )
+    end,
+  },
   "ahmedkhalf/project.nvim",        -- alpha dashboard
   {
     "iamcco/markdown-preview.nvim", -- markdown previewer
@@ -44,5 +54,6 @@ return {
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
   },
+
   'nvim-telescope/telescope-fzf-native.nvim',
 }
