@@ -1053,5 +1053,20 @@ require('nixCatsUtils.lazyCat').setup(pluginList, nixLazyPath,
     { import = 'custom.plugins' },
   }, lazyOptions)
 
+-- MarkdownPreview config
+vim.g.mkdp_preview_options = {
+  mkit = {},
+  katex = {},
+  uml = {},
+  maid = {},
+  disable_sync_scroll = 0,
+  sync_scroll_type = 'middle',
+  hide_yaml_meta = 1,
+  sequence_diagrams = {},
+  flowchart_diagrams = {},
+  content_editable = false,
+  disable_filename = 0,
+  toc = {}
+}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
