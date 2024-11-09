@@ -4,7 +4,7 @@
 -- See the kickstart.nvim README for more information
 return {
   -- Requirements for other packages
-  -- "nvim-tree/nvim-web-devicons",
+  "nvim-tree/nvim-web-devicons",
   "ryanoasis/vim-devicons",
 
   -- Telescope
@@ -14,7 +14,6 @@ return {
   },
   {
     "goolord/alpha-nvim",
-    -- dependencies = { 'echasnovski/mini.icons' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local startify = require("alpha.themes.startify")
@@ -23,7 +22,6 @@ return {
       )
     end,
   },
-  -- "ahmedkhalf/project.nvim",        -- alpha dashboard
    {
      "iamcco/markdown-preview.nvim",
      config = function()
