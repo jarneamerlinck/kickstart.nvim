@@ -33,14 +33,14 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+-- keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+-- keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -65,13 +65,13 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<space>fe", ":Telescope file_browser<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
+-- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+-- keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
 
 -- Custom
 keymap("n", "<leader>p", "<cmd> PasteImg <CR>", opts)
-keymap("n", "<leader>e", "$", opts)
-keymap("n", "S", "<cmd> %s//g", opts)
+-- keymap("n", "<leader>e", "$", opts)
+-- keymap("n", "S", "<cmd> %s//g", opts)
 keymap("n", "<F5>", "<cmd> UndotreeToggle <CR> <cmd> UndotreeFocus <CR>", opts)
 keymap("n", "<C-\\>", "<cmd> TZAtaraxis <CR>", opts)
 keymap("n", "<Leader>1", "1gt<CR>", opts)
@@ -81,21 +81,21 @@ keymap("n", "<Leader>4", "4gt<CR>", opts)
 keymap("n", "<Leader>5", "5gt<CR>", opts)
 keymap("n", "<Leader>t", "<cmd> tabnew<CR>", opts)
 keymap("n", "<Leader>c", "<cmd> tabclose<CR>", opts)
-
+keymap("n", "<leader>h", ":tabp<CR>", opts)
+keymap("n", "<leader>l", ":tabn<CR>", opts)
 
 
 
 -- own Custom
 -- term commands
-keymap("n", "T", ":split term://bash<CR>", opts)
+-- keymap("n", "T", ":split term://bash<CR>", opts)
 keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
 
 keymap("n", "<Leader>V", ":MarkdownPreview<CR>", opts)
 keymap("n", "<Leader>P", ":let @+=expand('%:p')<CR>", opts)
-keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
+-- keymap("n", "<Leader>Wl", ":WorkspacesList<CR>", opts)
 
 keymap("n", "<Leader>G", ":FloatermNew --height=0.8 --width=0.8 lazygit<CR>", opts)
-keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
 
 -- compiler commands
 
@@ -106,5 +106,9 @@ keymap("n", "tt", ":FloatermNew --height=0.8 --width=0.8<CR>", opts)
 -- reset keymaps
 
 
-keymap("n", "<Leader>Ch", "<Nop>", opts)
-keymap("n", "<Leader>Cl", "<Nop>", opts)
+keymap("n", "gco", "<Nop>", opts)
+keymap("n", "gc0", "<Nop>", opts)
+keymap("n", "gcA", "<Nop>", opts)
+-- keymap("n", "<Leader>gco", "<Nop>", opts)
+-- keymap("n", "<Leader>Ch", "<Nop>", opts)
+-- keymap("n", "<Leader>Cl", "<Nop>", opts)

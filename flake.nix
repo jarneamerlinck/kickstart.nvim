@@ -96,6 +96,8 @@
       # and neovim path when using nix develop
       propagatedBuildInputs = {
         generalBuildInputs = with pkgs; [
+          luajitPackages.luarocks
+          yarn
         ];
       };
 
@@ -106,6 +108,8 @@
       lspsAndRuntimeDeps = with pkgs; {
         general = [
           yarn
+          luajitPackages.luarocks
+          nodejs_18
 
           zoxide
           universal-ctags
@@ -115,15 +119,18 @@
           stdenv.cc.cc
           nix-doc
           lua-language-server
-          nixd
           stylua
           lazygit
+          nil
+          nixd
         ];
         kickstart-debug = [
           delve
         ];
         kickstart-lint = [
           markdownlint-cli
+          nil
+          nixd
         ];
       };
 
@@ -281,16 +288,16 @@
           # we can pass whatever we want actually.
           have_nerd_font = true;
 
-          example = {
-            youCan = "add more than just booleans";
-            toThisSet = [
-              "and the contents of this categories set"
-              "will be accessible to your lua with"
-              "nixCats('path.to.value')"
-              "see :help nixCats"
-              "and type :NixCats to see the categories set in nvim"
-            ];
-          };
+          # example = {
+          #   youCan = "add more than just booleans";
+          #   toThisSet = [
+          #     "and the contents of this categories set"
+          #     "will be accessible to your lua with"
+          #     "nixCats('path.to.value')"
+          #     "see :help nixCats"
+          #     "and type :NixCats to see the categories set in nvim"
+          #   ];
+          # };
         };
       };
     };
