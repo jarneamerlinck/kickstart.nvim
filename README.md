@@ -2,7 +2,19 @@
 
 Source is [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) (but started from [ChrisTitusTech/neovim](https://github.com/ChrisTitusTech/neovim))
 
-Has been conferted to nix with the template from [nixCats-nvim](https://github.com/BirdeeHub/nixCats-nvim)
+Has been converted to nix with the template from [nixCats-nvim](https://github.com/BirdeeHub/nixCats-nvim)
+
+The following features can be needed to run this config:
+
+```bash
+experimental-features = nix-command flakes
+```
+
+## Run and open nvim
+
+```bash
+nix run "github:jarneamerlinck/kickstart.nvim"
+```
 
 ## Run in shell
 
@@ -10,7 +22,8 @@ Has been conferted to nix with the template from [nixCats-nvim](https://github.c
 nix shell github:jarneamerlinck/kickstart.nvim
 ```
 
-## Run and open nvim
+## Install on system
+
 ```bash
-nix run "github:jarneamerlinck/kickstart.nvim"
+nix profile install github:jarneamerlinck/kickstart.nvim
 ```
