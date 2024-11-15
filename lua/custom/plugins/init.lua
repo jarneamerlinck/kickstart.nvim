@@ -22,7 +22,7 @@ return {
   },
   {
     'iamcco/markdown-preview.nvim',
-    config = function()
+    build = function()
       vim.fn['mkdp#util#install']()
     end,
   },
