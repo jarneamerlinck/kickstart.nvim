@@ -20,12 +20,12 @@ return {
       require('alpha').setup(startify.config)
     end,
   },
-  {
-    'iamcco/markdown-preview.nvim',
-    config = function()
-      vim.fn['mkdp#util#install']()
-    end,
-  },
+  -- {
+  --   'iamcco/markdown-preview.nvim',
+  --   config = function()
+  --     vim.fn['mkdp#util#install']()
+  --   end,
+  -- },
 
   'jvgrootveld/telescope-zoxide', -- for jump alternative
   'Pocco81/auto-save.nvim', -- autosave all files when entering normal mode
