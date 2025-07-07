@@ -109,7 +109,7 @@
         general = [
           yarn
           luajitPackages.luarocks
-          nodejs_18
+          nodejs_22
 
           zoxide
           universal-ctags
