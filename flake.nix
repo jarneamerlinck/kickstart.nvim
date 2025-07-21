@@ -123,6 +123,7 @@
           lazygit
           nil
           nixd
+          pyright
         ];
         kickstart-debug = [
           delve
