@@ -9,7 +9,7 @@
 return {
   'mfussenegger/nvim-dap',
   -- NOTE: nixCats: return true only if category is enabled, else false
-  enabled = require('nixCatsUtils').enableForCategory("kickstart-debug"),
+  enabled = require('nixCatsUtils').enableForCategory 'kickstart-debug',
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -19,7 +19,7 @@ return {
 
     -- Installs the debug adapters for you
     -- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
-    { 'williamboman/mason.nvim',      enabled = require('nixCatsUtils').lazyAdd(true, false) },
+    { 'williamboman/mason.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
     { 'jay-babu/mason-nvim-dap.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
 
     -- Add your own debuggers here
@@ -50,14 +50,14 @@ return {
     end
 
     -- Basic debugging keymaps, feel free to change to your liking!
-    -- vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    -- vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    -- vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    -- vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-    -- vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
-    -- -- vim.keymap.set('n', '<leader>B', function()
-    --   dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    -- end, { desc = 'Debug: Set Breakpoint' })
+    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
+    vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
+    vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
+    vim.keymap.set('n', '<leader>B', function()
+      dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+    end, { desc = 'Debug: Set Breakpoint' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
