@@ -2,6 +2,13 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+require('lze').register_handlers(require('nixCatsUtils.lzUtils').for_cat)
+require('lze').register_handlers(require('nixCatsUtils.lzUtils').in_extra)
+require('lze').load {
+  -- ...
+  { import = 'pluginConf.theme' },
+  -- ...
+}
 return {
   -- Requirements for other packages
   'nvim-tree/nvim-web-devicons',
