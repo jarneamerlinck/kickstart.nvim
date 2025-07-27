@@ -926,7 +926,7 @@ require('nixCatsUtils.lazyCat').setup(pluginList, nixLazyPath, {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -1035,28 +1035,6 @@ require('nixCatsUtils.lazyCat').setup(pluginList, nixLazyPath, {
   { import = 'custom.plugins' },
 }, lazyOptions)
 
--- Default to paraiso theme
-local _theme = {
-  base00 = '#2f1e2e', -- ----
-  base01 = '#41323f', -- ---
-  base02 = '#4f424c', -- --
-  base03 = '#776e71', -- -
-  base04 = '#8d8687', -- +
-  base05 = '#a39e9b', -- ++
-  base06 = '#b9b6b0', -- +++
-  base07 = '#e7e9db', -- ++++
-  base08 = '#ef6155', -- red
-  base09 = '#f99b15', -- orange
-  base0A = '#fec418', -- yellow
-  base0B = '#48b685', -- green
-  base0C = '#5bc4bf', -- aqua
-  base0D = '#06b6ef', -- blue
-  base0E = '#815ba4', -- purple
-  base0F = '#e96ba8', -- brown
-}
-local _trans = false
-
-nixCats.extra 'base16colors'
 -- MarkdownPreview config
 vim.g.mkdp_preview_options = {
   mkit = {},
