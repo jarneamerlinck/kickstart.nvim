@@ -147,6 +147,8 @@
               nil
               nixd
               pyright
+              tree-sitter
+              python313Packages.pynvim
             ];
             kickstart-debug = [
               delve
