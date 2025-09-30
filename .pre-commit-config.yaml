@@ -38,32 +38,15 @@ repos:
       entry: nix flake check
       language: system
       types: [nix]
-# - repo: https://github.com/cachix/pre-commit-hooks.nix
-#   rev: v0.5.1
-#   hooks:
-#     - id: nixpkgs-fmt
-#       name: nixpkgs-fmt
-#       entry: nixpkgs-fmt
-#       language: system
-#       types: [text]
-#     - id: statix
-#       name: statix
-#       entry: statix
-#       language: system
-#       types: [text]
-#     - id: deadnix
-#       name: deadnix
-#       entry: deadnix
-#       language: system
-#       types: [text]
-#     - id: nix-linter
-#       name: nix-linter
-#       entry: nix-linter
-#       language: system
-#       types: [text]
-#     - id: alejandra
-#       name: alejandra
-#       entry: alejandra
-#       language: system
-#       types: [text]
-#
+
+- repo: https://github.com/astro/deadnix
+  rev: v1.3.1
+  hooks:
+    - id: deadnix
+      args: [--edit] # Uncomment to automatically modify files
+      stages: [pre-commit]
+
+- repo: https://github.com/NixOS/nixfmt
+  rev: v1.0.1
+  hooks:
+    - id: nixfmt-nix
