@@ -1,0 +1,69 @@
+exclude: '^docs/conf.py'
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: trailing-whitespace
+  - id: check-added-large-files
+  - id: check-ast
+  - id: check-json
+  - id: check-merge-conflict
+  - id: check-xml
+  - id: check-yaml
+    args: ['--allow-multiple-documents']
+  - id: debug-statements
+  - id: end-of-file-fixer
+  - id: requirements-txt-fixer
+  - id: mixed-line-ending
+    args: ['--fix=auto']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
+
+
+## If like to embrace black styles even in the docs:
+- repo: https://github.com/asottile/blacken-docs
+  rev: 1.20.0
+  hooks:
+  - id: blacken-docs
+    additional_dependencies: [black]
+
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v1.5.0
+  hooks:
+    - id: detect-secrets
+
+- repo: local
+  hooks:
+    - id: nix-flake-check
+      name: Nix Flake Check
+      entry: nix flake check
+      language: system
+      types: [nix]
+# - repo: https://github.com/cachix/pre-commit-hooks.nix
+#   rev: v0.5.1
+#   hooks:
+#     - id: nixpkgs-fmt
+#       name: nixpkgs-fmt
+#       entry: nixpkgs-fmt
+#       language: system
+#       types: [text]
+#     - id: statix
+#       name: statix
+#       entry: statix
+#       language: system
+#       types: [text]
+#     - id: deadnix
+#       name: deadnix
+#       entry: deadnix
+#       language: system
+#       types: [text]
+#     - id: nix-linter
+#       name: nix-linter
+#       entry: nix-linter
+#       language: system
+#       types: [text]
+#     - id: alejandra
+#       name: alejandra
+#       entry: alejandra
+#       language: system
+#       types: [text]
+#
