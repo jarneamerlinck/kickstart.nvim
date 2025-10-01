@@ -18,6 +18,10 @@ repos:
   - id: mixed-line-ending
     args: ['--fix=auto']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
 
+- repo: https://github.com/JohnnyMorganz/StyLua
+  rev: v2.3.0
+  hooks:
+    - id: stylua
 
 ## If like to embrace black styles even in the docs:
 - repo: https://github.com/asottile/blacken-docs
