@@ -145,6 +145,9 @@
               pyright
               tree-sitter
               python313Packages.pynvim
+
+              pre-commit
+              git
             ];
             kickstart-debug = [
               delve
