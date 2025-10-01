@@ -27,3 +27,13 @@ nix shell github:jarneamerlinck/kickstart.nvim
 ```bash
 nix profile install github:jarneamerlinck/kickstart.nvim
 ```
+
+
+## Development
+
+Install pre-commits with:
+
+
+```bash
+pre-commit install
+```

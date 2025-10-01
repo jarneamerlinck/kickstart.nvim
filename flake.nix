@@ -43,7 +43,6 @@
   # see :help nixCats.flake.outputs
   outputs =
     {
-      self,
       nixpkgs,
       nixCats,
       ...
@@ -74,7 +73,7 @@
       # without fear.
       inherit
         (forEachSystem (
-          system:
+          _system:
           let
             # see :help nixCats.flake.outputs.overlays
             dependencyOverlays = (import ./overlays inputs) ++ [
@@ -101,11 +100,8 @@
       categoryDefinitions =
         {
           pkgs,
-          settings,
-          categories,
-          name,
           ...
-        }@packageDef:
+        }:
         {
           # to define and use a new category, simply add a new list to a set here,
           # and later, you will include categoryname = true; in the set you
@@ -149,6 +145,9 @@
               pyright
               tree-sitter
               python313Packages.pynvim
+
+              pre-commit
+              git
             ];
             kickstart-debug = [
               delve
@@ -280,7 +279,7 @@
         # These are the names of your packages
         # you can include as many as you wish.
         nvim =
-          { pkgs, ... }:
+          { ... }:
           {
             # they contain a settings set defined above
             # see :help nixCats.flake.outputs.settings
