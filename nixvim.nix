@@ -316,6 +316,11 @@ in
         desc = "Move focus to the upper window";
       };
     }
+    {
+      mode = "n";
+      key = "<F5>";
+      action = "<cmd> UndotreeToggle <CR> <cmd> UndotreeFocus <CR>";
+    }
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
