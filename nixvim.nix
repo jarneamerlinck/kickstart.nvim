@@ -38,6 +38,7 @@ in
     ./config/plugins/custom/alpha.nix
     ./config/plugins/custom/auto-save.nix
     ./config/plugins/custom/floaterm.nix
+    ./config/plugins/custom/devicons.nix
   ];
 
   /*
