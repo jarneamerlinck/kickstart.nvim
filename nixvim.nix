@@ -332,6 +332,22 @@ in
         desc = "Open terminal";
       };
     }
+    {
+      mode = "n";
+      key = "<Leader>P";
+      action = ":let @+=expand('%:p')<CR>";
+      options = {
+        desc = "Get path of current file";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>G";
+      action = ":FloatermNew --height=0.8 --width=0.8 ${pkgs.lazygit}/bin/lazygit<CR>";
+      options = {
+        desc = "Open lazygit in floaterm";
+      };
+    }
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
