@@ -33,6 +33,7 @@
       ui-select.enable = true;
       # https://github.com/jvgrootveld/telescope-zoxide
       zoxide.enable = true;
+      file-browser.enable = true;
     };
 
     # You can put your default mappings / updates / etc. in here
@@ -109,6 +110,14 @@
           desc = "[S]earch Recent Files ('.' for repeat)";
         };
       };
+      "<leader>se" = {
+        mode = "n";
+        action = "file_browser";
+        options = {
+          desc = "[S]earch file [E]xplorer";
+        };
+      };
+
       "<leader><leader>" = {
         mode = "n";
         action = "buffers";
