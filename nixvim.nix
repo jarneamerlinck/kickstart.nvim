@@ -9,6 +9,7 @@ let
   hasStylix = config ? stylix && (config.stylix.enable or false);
 in
 {
+
   imports = [
     # Plugins
     ./config/plugins/kickstart/gitsigns.nix
@@ -20,7 +21,6 @@ in
     ./config/plugins/kickstart/todo-comments.nix
     ./config/plugins/kickstart/mini.nix
     ./config/plugins/kickstart/treesitter.nix
-    ./config/plugins/custom/auto-save.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
@@ -33,8 +33,10 @@ in
     # ./config/plugins/kickstart/autopairs.nix
     # ./config/plugins/kickstart/neo-tree.nix
     #
-    # NOTE: Configure your own plugins `see https://nix-community.github.io/nixvim/`
-    # Add your plugins to ./config/plugins/custom and import them below
+
+    # Custom plugins
+    ./config/plugins/custom/alpha.nix
+    ./config/plugins/custom/auto-save.nix
   ];
 
   /*
