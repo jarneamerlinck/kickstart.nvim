@@ -5,7 +5,7 @@
   ...
 }:
 let
-  enable_nerd_fonts = false;
+  enable_nerd_fonts = true;
   hasStylix = config ? stylix && (config.stylix.enable or false);
 in
 {
@@ -390,7 +390,6 @@ in
         desc = "Move to right tab";
       };
     }
-
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
