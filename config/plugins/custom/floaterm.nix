@@ -1,6 +1,6 @@
 {
   # https://nix-community.github.io/nixvim/plugins/floaterm/index.html
-  plugins.floatterm = {
+  plugins.floaterm = {
     enable = true;
   };
 }

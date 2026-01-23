@@ -37,7 +37,7 @@ in
     # Custom plugins
     ./config/plugins/custom/alpha.nix
     ./config/plugins/custom/auto-save.nix
-    ./config/plugins/custom/floatterm.nix
+    ./config/plugins/custom/floaterm.nix
   ];
 
   /*
