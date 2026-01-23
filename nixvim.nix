@@ -20,6 +20,7 @@ in
     ./config/plugins/kickstart/todo-comments.nix
     ./config/plugins/kickstart/mini.nix
     ./config/plugins/kickstart/treesitter.nix
+    ./config/plugins/custom/auto-save.nix
 
     # NOTE: Add/Configure additional plugins for Kickstart.nixvim
     #
