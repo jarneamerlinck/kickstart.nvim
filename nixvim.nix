@@ -349,6 +349,15 @@ in
         desc = "Open lazygit in floaterm";
       };
     }
+    {
+      mode = "n";
+      key = "<Leader>a";
+      action = ":Alpha<CR>";
+      options = {
+        desc = "Open alpha";
+      };
+    }
+
     # Tab movement/control
     {
       mode = "n";
