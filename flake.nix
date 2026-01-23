@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +19,7 @@
       nixpkgs,
       nixvim,
       flake-parts,
+      stylix,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -62,7 +67,10 @@
             ...
           }:
           {
-            imports = [ inputs.nixvim.nixosModules.nixvim ];
+            imports = [
+              inputs.nixvim.nixosModules.nixvim
+              inputs.stylix.nixosModules.stylix
+            ];
             programs.nixvim = import ./nixvim.nix { inherit pkgs lib config; };
           };
 
@@ -74,7 +82,10 @@
             ...
           }:
           {
-            imports = [ inputs.nixvim.homeModules.nixvim ];
+            imports = [
+              inputs.nixvim.homeModules.nixvim
+              inputs.stylix.homeManagerModules.stylix
+            ];
             programs.nixvim = import ./nixvim.nix { inherit pkgs lib config; };
           };
 
@@ -86,7 +97,10 @@
             ...
           }:
           {
-            imports = [ inputs.nixvim.darwinModules.nixvim ];
+            imports = [
+              inputs.nixvim.darwinModules.nixvim
+              inputs.stylix.darwinModules.stylix
+            ];
             programs.nixvim = import ./nixvim.nix { inherit pkgs lib config; };
           };
       };

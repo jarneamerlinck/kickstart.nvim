@@ -6,6 +6,7 @@
 }:
 let
   enable_nerd_fonts = false;
+  hasStylix = config ? stylix && (config.stylix.enable or false);
 in
 {
   imports = [
@@ -118,23 +119,46 @@ in
   # Don't forget to disable the colorschemes you arent using
   #
   # If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  colorschemes = {
-    # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
-    tokyonight = {
-      enable = true;
-      settings = {
-        # Like many other themes, this one has different styles, and you could load
-        # any other, such as 'storm', 'moon', or 'day'.
-        style = "night";
-        styles = {
-          comments = {
-            italic = false; # Disable italics in comments
+  # colorschemes = {
+  #   # https://nix-community.github.io/nixvim/colorschemes/tokyonight/index.html
+  #   tokyonight = {
+  #     enable = true;
+  #     settings = {
+  #       # Like many other themes, this one has different styles, and you could load
+  #       # any other, such as 'storm', 'moon', or 'day'.
+  #       style = "night";
+  #       styles = {
+  #         comments = {
+  #           italic = false; # Disable italics in comments
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
+  # Allow stylix for theming
+  colorschemes =
+    if hasStylix then
+      {
+        # Stylix-controlled Base16
+        base16.enable = true;
+      }
+    else
+      {
+        # Fallback colorscheme when Stylix is not installed
+        tokyonight = {
+          enable = true;
+          settings = {
+            # Like many other themes, this one has different styles, and you could load
+            # any other, such as 'storm', 'moon', or 'day'.
+            style = "night";
+            styles = {
+              comments = {
+                italic = false; # Disable italics in comments
+              };
+            };
           };
         };
       };
-    };
-  };
-
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html#globals
   globals = {
     # Set <space> as the leader key
@@ -344,7 +368,7 @@ in
         source = "if_many";
       };
       underline = {
-        severity.__raw = ''vim.diagnostic.severity.ERROR'';
+        severity.__raw = "vim.diagnostic.severity.ERROR";
       };
       signs.__raw = ''
         vim.g.have_nerd_font and {
