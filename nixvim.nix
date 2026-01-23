@@ -430,7 +430,22 @@ in
         desc = "Move to tab 5";
       };
     }
-
+    {
+      mode = "n";
+      key = "<Leader>-";
+      action = ":new<CR>";
+      options = {
+        desc = "Split window horizontal";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>|";
+      action = ":vne<CR>";
+      options = {
+        desc = "Split window vertical";
+      };
+    }
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
