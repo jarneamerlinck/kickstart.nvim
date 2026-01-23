@@ -92,6 +92,14 @@
           desc = "[S]earch [R]esume";
         };
       };
+
+      "<leader>st" = {
+        mode = "n";
+        action = "todo-comments";
+        options = {
+          desc = "[S]earch [T]odo";
+        };
+      };
       "<leader>s." = {
         mode = "n";
         action = "oldfiles";
