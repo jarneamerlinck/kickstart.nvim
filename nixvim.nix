@@ -390,6 +390,47 @@ in
         desc = "Move to right tab";
       };
     }
+    {
+      mode = "n";
+      key = "<Leader>1";
+      action = "1gt<CR>";
+      options = {
+        desc = "Move to tab 1";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>2";
+      action = "2gt<CR>";
+      options = {
+        desc = "Move to tab 2";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>3";
+      action = "3gt<CR>";
+      options = {
+        desc = "Move to tab 3";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>4";
+      action = "4gt<CR>";
+      options = {
+        desc = "Move to tab 4";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>5";
+      action = "5gt<CR>";
+      options = {
+        desc = "Move to tab 5";
+      };
+    }
+
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
