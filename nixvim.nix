@@ -320,6 +320,17 @@ in
       mode = "n";
       key = "<F5>";
       action = "<cmd> UndotreeToggle <CR> <cmd> UndotreeFocus <CR>";
+      options = {
+        desc = "Move focus to undotree";
+      };
+    }
+    {
+      mode = "n";
+      key = "tt";
+      action = ":FloatermNew --height=0.8 --width=0.8<CR>";
+      options = {
+        desc = "Open terminal";
+      };
     }
   ];
 
