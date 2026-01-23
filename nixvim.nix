@@ -348,6 +348,40 @@ in
         desc = "Open lazygit in floaterm";
       };
     }
+    # Tab movement/control
+    {
+      mode = "n";
+      key = "<Leader>T";
+      action = "<cmd> tabnew<CR>";
+      options = {
+        desc = "Open new tab";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>C";
+      action = "<cmd> tabclose<CR>";
+      options = {
+        desc = "Close tab";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>H";
+      action = ":tabp<CR>";
+      options = {
+        desc = "Move to left tab";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>L";
+      action = ":tabn<CR>";
+      options = {
+        desc = "Move to right tab";
+      };
+    }
+
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
