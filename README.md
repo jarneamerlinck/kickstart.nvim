@@ -137,7 +137,7 @@ nix build .
 4. a. If you are using kickstart.nixvim with your own flake confirm the `init.lua` file has been created and loads without errors
 ```sh
 nvim ~/.config/nvim/init.lua
-``` 
+```
 
 # FAQ
 
