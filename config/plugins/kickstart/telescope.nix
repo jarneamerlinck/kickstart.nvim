@@ -61,7 +61,7 @@
       };
       "<leader>sf" = {
         mode = "n";
-        action = "find_files";
+        action = "find_files hidden=true no_ignore=true";
         options = {
           desc = "[S]earch [F]iles";
         };
