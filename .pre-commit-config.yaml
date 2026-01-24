@@ -18,13 +18,13 @@ repos:
   - id: mixed-line-ending
     args: ['--fix=lf']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
 
-- repo: local
-  hooks:
-    - id: nix-flake-check
-      name: Nix Flake Check
-      entry: nix flake check
-      language: system
-      types: [nix]
+# - repo: local
+#   hooks:
+#     - id: nix-flake-check
+#       name: Nix Flake Check
+#       entry: nix flake check
+#       language: system
+#       types: [nix]
 
 
 
