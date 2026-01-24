@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+  extraPackages = with pkgs; [
+    # Used to format Lua code
+    zoxide
+    fzf
+  ];
   # Fuzzy Finder (files, lsp, etc)
   # https://nix-community.github.io/nixvim/plugins/telescope/index.html
   plugins.telescope = {
