@@ -134,6 +134,17 @@
     };
     settings = {
       extensions.__raw = "{ ['ui-select'] = { require('telescope.themes').get_dropdown() } }";
+      defaults = {
+        file_ignore_patterns = [
+          ".git/"
+          "^node_modules/"
+          "^vendor/"
+          "%.jpg"
+          "%.png"
+          "%.tox/"
+          "%.oh-my-zsh/"
+        ];
+      };
     };
   };
 
