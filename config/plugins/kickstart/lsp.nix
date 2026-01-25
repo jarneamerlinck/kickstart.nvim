@@ -2,6 +2,7 @@
 {
   extraPackages = with pkgs; [
     yaml-language-server
+    nixfmt
   ];
   # Useful status updates for LSP.
   # https://nix-community.github.io/nixvim/plugins/fidget/index.html
@@ -97,8 +98,31 @@
         enable = true;
       };
       # Nix lsp
-      nil_ls = {
+      nixd = {
         enable = true;
+        settings = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }";
+          };
+          formatting = {
+            command = [ "nixfmt" ];
+          };
+          options = {
+            # nixos = {
+            #   expr = ''
+            #     (builtins.getFlake (builtins.getEnv "NH_FLAKE"))
+            #       .nixosConfigurations.${builtins.getEnv "HOSTNAME"}.options
+            #   '';
+            # };
+
+            # home_manager = {
+            #   expr = ''
+            #     (builtins.getFlake (builtins.getEnv "NH_FLAKE"))
+            #       .homeConfigurations.CONFIGNAME.options
+            #   '';
+            # };
+          };
+        };
       };
 
       # Docker
