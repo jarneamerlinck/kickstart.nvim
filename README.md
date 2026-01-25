@@ -1,26 +1,22 @@
 # kickstart.nixvim
 
->**NOTE**
-> I have updated this repo to use a flake approach so that it can
-> easily be incorporated into any setup.
->
-> I apologize that this change is not backwards compatible as nixvim standalone requires a specific folder structure. I have moved all plugins under the `/config` directory and have simplified the plugins directory structure. The setting `have_nerd_font` has been renamed to `enable_nerds_fonts`
->
->If you are looking for the previous implementation it can be found [here](https://github.com/JMartJonesy/kickstart.nixvim/tree/legacy)
-
 ## Introduction
 
-This repo is a personal project to learn Nix & Nixvim within NixOS while also learning/setting up [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
-I have attempted to be as true to kickstart as possible while adding new and updated comments to help those learning Nix.
+This repo contains my personal neovim config.
 
-### Caveats
 
-1. Nix does not lend itself to the same separation paradigms used by kickstart.nvim. The idea of keeping the configuration as a single file
-similar to kickstart.nvim was originally planned but as I translated more of the init.lua over I found Nix lended itself better to a more
-modular implementation. This means most plugins have their own .nix files that are imported into the base nixvim.nix file.
-2. I used as little lua code as possible in the .nix files but due to Nixvim being a relatively new Nix module not everything can be natively configured. Any lua code will slowly be removed as new Nixvim features come out that allow for native methods of configuation.
-3. I did not include Lazy nor Mason as I felt those both went against the Nix philosophy of having all your dependencies installed and managed through the .nix files. While it is possible to configure Lazy in Nixvim the implementation is very limited at the moment. Further enhancements to Lazy which would allow lazy loading are being discussed [here](https://github.com/nix-community/nixvim/issues/421) and I may update this repo to use Lazy when these features are implemented.
-4. kickstart.nixvim is somewhat slower than kickstart.nvim, some of this has to do with the fact that this repo is not using Lazy. I'll have to do futher investigation to identify how else to speed up this implementation.
+This first started as a [kickstart-nvim](https://github.com/nvim-lua/kickstart.nvim) (from [ChrisTitusTech/neovim](https://github.com/ChrisTitusTech/neovim)) project.
+Then has been converted to nix with the template from [nixCats-nvim](https://github.com/BirdeeHub/nixCats-nvim).
+
+As nixCats-nvim has been archived I moved to nixvim.
+
+I archived the nixCats repo and went with a fork from [JMartJonesy/kickstart.nixvim](https://github.com/JMartJonesy/kickstart.nixvim). This will help to include future updates.
+
+Major extra features compared to JMartJonesy repo:
+
+- Stylix included
+- Personal keybinds
+
 
 # Installation
 
@@ -28,14 +24,9 @@ If not using standalone setup this installation process assumes you understand t
 
 ## Install External Dependencies
 
-- Basic utils: `git`
 - Clipboard tool (xclip/xsel/win32yank or other depending on platform)
 - A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
   - if you have it set `enable_nerd_fonts` in `nixvim.nix` to true
-- Language Dependencies:
-  - If you want to write Typescript, you will need `npm`
-  - If you want to write Golang, you will need `go`
-  - etc.
 
 ## Overview
 
@@ -55,18 +46,34 @@ You can use this repo in four ways:
 
 Run instantly without modifying any user or system configuration:
 ```nix
-nix run github:JMartJonesy/kickstart.nixvim -- <FILE>
+nix run github:jarneamerlinck/kickstart.nvim -- <FILE>
 ```
 Or build your own runnable nvim that can be reused
 ```nix
-nix build github:JMartJonesy/kickstart.nixvim
+nix build github:jarneamerlinck/kickstart.nvim
 ./result/bin/nvim <FILE>
 ```
 
 ### 2. NixOS Module
 1. Add kickstart.nixvim to your `flake.nix`:
 ```nix
-inputs.kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
+inputs.kickstart-nixvim.url = "github:jarneamerlinck/kickstart.nvim";
+```
+2. Import the nixosModules in your `configuration.nix`:
+```nix
+{
+  imports = [
+    inputs.kickstart-nixvim.nixosModules.default
+  ];
+
+  programs.nixvim.enable = true;
+}
+```
+
+### (Optional) NixOS Module with stylix
+1. Add kickstart.nixvim to your `flake.nix`:
+```nix
+inputs.kickstart-nixvim.url = "github:jarneamerlinck/kickstart.nvim";
 ```
 2. Import the nixosModules in your `configuration.nix`:
 ```nix
@@ -82,7 +89,7 @@ inputs.kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 ### 3. Home Manager Module
 1. Add kickstart.nixvim to your `flake.nix`:
 ```nix
-inputs.kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
+inputs.kickstart-nixvim.url = "github:jarneamerlinck/kickstart.nvim";
 ```
 2. Import the homeManagerModules in your `home.nix`:
 ```nix
@@ -95,10 +102,33 @@ inputs.kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
 }
 ```
 
+### (Optional) Home Manager Module with stylix
+1. Add kickstart.nixvim to your `flake.nix`:
+```nix
+inputs.kickstart-nixvim.url = "github:jarneamerlinck/kickstart.nvim";
+```
+2. Import the homeManagerModules in your `home.nix`:
+```nix
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+  nixvim-package = inputs.nixvim-config.packages.${system}.default;
+  extended-nixvim = nixvim-package.extend config.stylix.targets.nixvim.exportedModule;
+in
+{
+  home.packages = [ extended-nixvim ];
+}
+```
+
 ### 4. nix-darwin Module (macOS)
 1. Add kickstart.nxivim to your `flake.nix`:
 ```nix
-inputs.kickstart-nixvim.url = "github:JMartJonesy/kickstart.nixvim";
+inputs.kickstart-nixvim.url = "github:jarneamerlinck/kickstart.nvim";
 ```
 2. Import the darwinModules in your `darwin-configuration.nix`:
 ```nix
@@ -161,3 +191,12 @@ nvim ~/.config/nvim/init.lua
    3. Remove any .local nvim files `rm -rf ~/.local/share/nvim/`
    4. **Optional:** Move your previously backed up lua configuration files to `$XDG_CONFIG_HOME/nvim` or `~/.config/nvim`
    5. Rebuild your NixOS configuration `nixos-rebuild switch`
+
+
+## Stylix
+
+
+Stylix support has been added and has the following features
+
+- fallback theme is tokyonight Dark
+- Stylix can be included from home manager (or nixos config: Did not try this one)
