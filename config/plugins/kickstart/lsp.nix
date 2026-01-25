@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  extraPackages = with pkgs; [
+    yaml-language-server
+  ];
   # Useful status updates for LSP.
   # https://nix-community.github.io/nixvim/plugins/fidget/index.html
   plugins.fidget = {
@@ -89,8 +92,27 @@
       #   enable = true;
       # };
 
+      # Bash
+      bashls = {
+        enable = true;
+      };
       # Nix lsp
       nil_ls = {
+        enable = true;
+      };
+
+      # Docker
+      dockerls = {
+        enable = true;
+      };
+
+      # YAML (kubernetes + helm)
+
+      # yamlls = {
+      #   enable = true;
+      # };
+
+      helm_ls = {
         enable = true;
       };
 
