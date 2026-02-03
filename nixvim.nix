@@ -38,6 +38,7 @@ in
     ./config/plugins/custom/alpha.nix
     ./config/plugins/custom/auto-save.nix
     ./config/plugins/custom/floaterm.nix
+    ./config/plugins/custom/snacks.nix
   ];
 
   /*
@@ -327,7 +328,7 @@ in
     {
       mode = "n";
       key = "tt";
-      action = ":FloatermNew --height=0.8 --width=0.8<CR>";
+      action = "<cmd>FloatermNew --height=0.8 --width=0.8<CR>";
       options = {
         desc = "Open terminal";
       };
@@ -335,7 +336,7 @@ in
     {
       mode = "n";
       key = "<Leader>P";
-      action = ":let @+=expand('%:p')<CR>";
+      action = "<cmd>let @+=expand('%:p')<CR>";
       options = {
         desc = "Get path of current file";
       };
@@ -343,7 +344,7 @@ in
     {
       mode = "n";
       key = "<Leader>G";
-      action ="<cmd> FloatermNew --height=0.8 --width=0.8 ${pkgs.lazygit}/bin/lazygit<CR>";
+      action = "<cmd> FloatermNew --height=0.8 --width=0.8 ${pkgs.lazygit}/bin/lazygit<CR>";
       options = {
         desc = "Open lazygit in floaterm";
       };
@@ -351,7 +352,7 @@ in
     {
       mode = "n";
       key = "<Leader>a";
-      action = ":Alpha<CR>";
+      action = "<cmd>Alpha<CR>";
       options = {
         desc = "Open alpha";
       };
@@ -377,7 +378,7 @@ in
     {
       mode = "n";
       key = "<Leader>H";
-      action = ":tabp<CR>";
+      action = "<cmd>tabp<CR>";
       options = {
         desc = "Move to left tab";
       };
@@ -385,7 +386,7 @@ in
     {
       mode = "n";
       key = "<Leader>L";
-      action = ":tabn<CR>";
+      action = "<cmd>tabn<CR>";
       options = {
         desc = "Move to right tab";
       };
@@ -433,7 +434,7 @@ in
     {
       mode = "n";
       key = "<Leader>-";
-      action = ":new<CR>";
+      action = "<cmd>new<CR>";
       options = {
         desc = "Split window horizontal";
       };
@@ -441,11 +442,30 @@ in
     {
       mode = "n";
       key = "<Leader>|";
-      action = ":vne<CR>";
+      action = "<cmd>vne<CR>";
       options = {
         desc = "Split window vertical";
       };
     }
+
+    # Custom plugins
+    {
+      mode = "n";
+      key = "<Leader>gB";
+      action = "<cmd>lua require('snacks').gitbrowse()<CR>";
+      options = {
+        desc = "[G]it [B]rowse (Snacks)";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Leader>gb";
+      action = "<cmd>lua require('snacks').git.blame_line()<CR>";
+      options = {
+        desc = "[G]it [b]lame";
+      };
+    }
+
   ];
 
   # https://nix-community.github.io/nixvim/NeovimOptions/autoGroups/index.html
