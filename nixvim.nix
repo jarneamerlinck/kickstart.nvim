@@ -344,7 +344,7 @@ in
     {
       mode = "n";
       key = "<Leader>G";
-      action = "<cmd>FloatermNew --height=0.8 --width=0.8 ${pkgs.lazygit}/bin/lazygit<CR>";
+      action ="<cmd> FloatermNew --height=0.8 --width=0.8 ${pkgs.lazygit}/bin/lazygit<CR>";
       options = {
         desc = "Open lazygit in floaterm";
       };
