@@ -15,6 +15,7 @@ I archived the nixCats repo and went with a fork from [JMartJonesy/kickstart.nix
 Major extra features compared to JMartJonesy repo:
 
 - Stylix included
+- Added plugins
 - Personal keybinds
 
 
