@@ -123,6 +123,13 @@
           desc = "[S]earch file [E]xplorer";
         };
       };
+      "<leader>sp" = {
+        mode = "n";
+        action = "zoxide list";
+        options = {
+          desc = "[S]earch [P]ath";
+        };
+      };
 
       "<leader><leader>" = {
         mode = "n";
