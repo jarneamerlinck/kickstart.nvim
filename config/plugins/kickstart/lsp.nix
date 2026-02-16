@@ -139,6 +139,10 @@
       helm_ls = {
         enable = true;
       };
+      # Quickshell
+      qmlls = {
+        enable = true;
+      };
 
       # Lua lsp
       lua_ls = {
