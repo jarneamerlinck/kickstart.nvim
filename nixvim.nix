@@ -330,7 +330,15 @@ in
       key = "tt";
       action = "<cmd>FloatermNew --height=0.8 --width=0.8<CR>";
       options = {
-        desc = "Open terminal";
+        desc = "Open [T]erminal";
+      };
+    }
+    {
+      mode = "n";
+      key = "td";
+      action = "<cmd>FloatermNew --height=0.8 --width=0.8 nix develop<CR>";
+      options = {
+        desc = "Open [T]erminal Nix [D]evelop";
       };
     }
     {
