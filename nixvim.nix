@@ -22,12 +22,7 @@ in
     ./config/plugins/kickstart/mini.nix
     ./config/plugins/kickstart/treesitter.nix
 
-    # NOTE: Add/Configure additional plugins for Kickstart.nixvim
-    #
-    #  Here are some example plugins that I've included in the Kickstart repository.
-    #  Uncomment any of the lines below to enable them (you will need to restart nvim).
-    #
-    # ./config/plugins/kickstart/debug.nix
+    ./config/plugins/kickstart/debug.nix
     ./config/plugins/kickstart/indent-blankline.nix
     ./config/plugins/kickstart/lint.nix
     ./config/plugins/kickstart/autopairs.nix
@@ -318,7 +313,7 @@ in
     }
     {
       mode = "n";
-      key = "<F5>";
+      key = "<F1>";
       action = "<cmd> UndotreeToggle <CR> <cmd> UndotreeFocus <CR>";
       options = {
         desc = "Move focus to undotree";

@@ -40,7 +40,7 @@
   };
 
   # Add your own debuggers here
-  plugins.dap-go = {
+  plugins.dap-python = {
     enable = true;
   };
 
