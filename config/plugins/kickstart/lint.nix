@@ -5,6 +5,7 @@
 
   extraPackages = with pkgs; [
     markdownlint-cli
+    hadolint
   ];
   plugins.lint = {
     enable = true;
