@@ -21,13 +21,36 @@
       dockerfile = [ "hadolint" ];
       #inko = ["inko"];
       #janet = ["janet"];
-      #json = ["jsonlint"];
+      # json = [ "jq" ];
       #rst = ["vale"];
       #ruby = ["ruby"];
       #terraform = ["tflint"];
       #text = ["vale"];
     };
+    linters = {
+      jq = {
+        cmd = "jq";
+        stdin = true;
+        args = [ "." ];
+        stream = "stderr";
+        ignore_exitcode = false;
+        parser = ''
+          function(output, bufnr)
+            if output == "" then
+              return {}
+            end
 
+            return {{
+              lnum = 1,
+              col = 1,
+              message = output,
+              severity = vim.diagnostic.severity.ERROR,
+              source = "jq",
+            }}
+          end
+        '';
+      };
+    };
     # Create autocommand which carries out the actual linting
     # on the specified events.
     autoCmd = {
