@@ -329,10 +329,10 @@ in
     }
     {
       mode = "n";
-      key = "td";
-      action = "<cmd>FloatermNew --height=0.8 --width=0.8 nix develop<CR>";
+      key = "<Leader>td";
+      action = "<cmd>lua vim.diagnostic.enable(not vim.diagnostic.is_enabled({bufnr = 0}), {bufnr = 0})<CR>";
       options = {
-        desc = "Open [T]erminal Nix [D]evelop";
+        desc = "[T]oggle buffer [D]iagnostics";
       };
     }
     {
