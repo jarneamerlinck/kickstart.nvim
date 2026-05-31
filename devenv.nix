@@ -1,10 +1,10 @@
-{
-  pkgs,
-  lib,
-  config,
-  inputs,
-  ...
-}:
+# {
+#   pkgs,
+#   lib,
+#   config,
+#   inputs,
+#   ...
+# }:
 
 {
   # https://devenv.sh/basics/
@@ -46,14 +46,15 @@
 
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = {
+    # Formatting
     nixfmt.enable = true;
-    check-added-large-files.enable = true;
     # File validation
+    check-added-large-files.enable = true;
     check-json.enable = true;
     check-yaml.enable = true;
     check-xml.enable = true;
     check-toml.enable = true;
-    # deadnix.enable = true;
+    deadnix.enable = true;
   };
 
   # See full reference at https://devenv.sh/reference/options/
