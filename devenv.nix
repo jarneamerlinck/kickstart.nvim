@@ -41,7 +41,7 @@
   # https://devenv.sh/tests/
   enterTest = ''
     nix flake check --verbose
-    # pre-commit run --all
+    pre-commit install -f --hook-type pre-commit && pre-commit run --all --verbose
   '';
 
   # https://devenv.sh/git-hooks/
