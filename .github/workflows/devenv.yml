@@ -21,5 +21,6 @@ jobs:
       run: nix profile add nixpkgs#devenv
 
     - name: Build the devenv shell and run any pre-commit hooks
-      run: devenv test
+      shell: bash -c "nix develop --impure -c bash -- {0}"
+      run: devenv test -v
 
