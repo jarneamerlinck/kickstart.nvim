@@ -10,7 +10,7 @@
   plugins.lint = {
     enable = true;
 
-    # NOTE: Enabling these will cause errors unless these tools are installed
+    #  Enabling these will cause errors unless these tools are installed
     lintersByFt = {
       nix = [ "nix" ];
       markdown = [
