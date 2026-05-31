@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   # [[ Basic Keymaps ]]
   #  See `:help vim.keymap.set()`
@@ -239,7 +240,14 @@
         desc = "[G]it [b]lame";
       };
     }
-
+    {
+      mode = "n";
+      key = "<Leader>nt";
+      action = "<cmd> FloatermNew! --disposable --position=bottom --height=0.3  ${pkgs.devenv}/bin/devenv test -v<CR>";
+      options = {
+        desc = "Devenv [N]ix [T]est";
+      };
+    }
   ];
 
 }
