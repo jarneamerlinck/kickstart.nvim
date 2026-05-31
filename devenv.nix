@@ -46,7 +46,7 @@
 
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = {
-    # nixpkgs-fmt.enable = true;
+    nixfmt.enable = true;
     check-added-large-files.enable = true;
     # File validation
     check-json.enable = true;
