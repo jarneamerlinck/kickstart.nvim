@@ -45,7 +45,16 @@
   '';
 
   # https://devenv.sh/git-hooks/
-  # git-hooks.hooks.shellcheck.enable = true;
+  git-hooks.hooks = {
+    # nixpkgs-fmt.enable = true;
+    check-added-large-files.enable = true;
+    # File validation
+    check-json.enable = true;
+    check-yaml.enable = true;
+    check-xml.enable = true;
+    check-toml.enable = true;
+    # deadnix.enable = true;
+  };
 
   # See full reference at https://devenv.sh/reference/options/
 }
