@@ -42,6 +42,7 @@
   # https://devenv.sh/tests/
   enterTest = ''
     nix flake check
+    pre-commit run --all
   '';
 
   # https://devenv.sh/git-hooks/
