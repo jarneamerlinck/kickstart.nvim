@@ -28,10 +28,9 @@
   # '';
 
   # https://devenv.sh/basics/
-  # enterShell = ''
-  #   hello         # Run scripts directly
-  #   git --version # Use packages
-  # '';
+  enterShell = ''
+    pre-commit install -f --hook-type pre-commit
+  '';
 
   # https://devenv.sh/tasks/
   # tasks = {
