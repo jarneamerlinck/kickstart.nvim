@@ -33,10 +33,18 @@
   '';
 
   # https://devenv.sh/tasks/
-  # tasks = {
-  #   "myproj:setup".exec = "mytool build";
-  #   "devenv:enterShell".after = [ "myproj:setup" ];
-  # };
+  tasks = {
+    "nix-update:flake" = {
+      exec = "nix flake update";
+    };
+    "nix-update:devenv" = {
+      exec = "devenv update";
+      # after = [ "nix:flake-update" ];
+    };
+    "git:precommit" = {
+      exec = "pre-commit run --all";
+    };
+  };
 
   # https://devenv.sh/tests/
   enterTest = ''
