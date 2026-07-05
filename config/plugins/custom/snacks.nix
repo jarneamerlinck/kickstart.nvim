@@ -53,14 +53,10 @@
     		end,
     		confirm = function(picker, item)
     			picker:close()
-    			Snacks.terminal({
-    				"sh",
-    				"-c",
-    				"devenv tasks run " .. vim.fn.shellescape(item.task) .. "; echo; echo 'Press ENTER to close...'; read",
-    			}, {
-    				auto_insert = true,
-    				focus = true,
-    			})
+    			vim.cmd(
+    				"FloatermNew! --disposable --position=bottom --height=0.3 devenv tasks run "
+    					.. vim.fn.shellescape(item.task)
+    			)
     		end,
     	})
     end
