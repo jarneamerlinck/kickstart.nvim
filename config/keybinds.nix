@@ -248,6 +248,12 @@
         desc = "Devenv [N]ix [T]est";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>na";
+      action = "<cmd>DevenvTasks<CR>";
+      options.desc = "[N]ix devenv t[A]sks";
+    }
   ];
 
 }
