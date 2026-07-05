@@ -250,9 +250,9 @@
     }
     {
       mode = "n";
-      key = "<leader>et";
+      key = "<leader>na";
       action = "<cmd>DevenvTasks<CR>";
-      options.desc = "Devenv Tasks";
+      options.desc = "[N]ix devenv t[A]sks";
     }
   ];
 
