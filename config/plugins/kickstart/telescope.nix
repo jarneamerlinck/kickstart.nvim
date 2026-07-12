@@ -144,6 +144,8 @@
       defaults = {
         file_ignore_patterns = [
           ".git/"
+          ".devenv/"
+          ".direnv/"
           "^node_modules/"
           "^vendor/"
           "%.jpg"
