@@ -13,7 +13,7 @@
       bash
       ssh_config
       # sway
-      tmux
+      # tmux
 
       # Nix, Nixvim
       nix
@@ -66,6 +66,12 @@
       # svelte
     ];
 
+    indent = {
+      enable = true;
+      disable = [
+        "ruby"
+      ];
+    };
     settings = {
       # Installing tree-sitter grammars from nvim-treesitter
       # (can be combined with grammarPackages from Nixpkgs)
@@ -78,13 +84,6 @@
 
         # Some languages depend on vim's regex highlighting system for indent rules.
         additional_vim_regex_highlighting = [
-          "ruby"
-        ];
-      };
-
-      indent = {
-        enable = true;
-        disable = [
           "ruby"
         ];
       };
