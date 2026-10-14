@@ -34,6 +34,7 @@ in
     ./config/plugins/custom/auto-save.nix
     ./config/plugins/custom/floaterm.nix
     ./config/plugins/custom/snacks.nix
+    ./config/plugins/custom/git-diff.nix
   ];
 
   /*

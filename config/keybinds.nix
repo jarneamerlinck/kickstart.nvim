@@ -242,6 +242,14 @@
     }
     {
       mode = "n";
+      key = "<leader>gD";
+      action = "<cmd>GitBranchDiff<CR>";
+      options = {
+        desc = "[G]it [D]iff against branch (Snacks)";
+      };
+    }
+    {
+      mode = "n";
       key = "<Leader>nt";
       action = "<cmd> FloatermNew! --disposable --position=bottom --height=0.3  ${pkgs.devenv}/bin/devenv test -v<CR>";
       options = {
