@@ -261,7 +261,14 @@
       key = "<leader>na";
       action = "<cmd>DevenvTasks<CR>";
       options.desc = "[N]ix devenv t[A]sks";
+    } # Hugo
+    {
+      mode = "n";
+      key = "<leader>Hp";
+      action = "<cmd>PasteImage<CR>";
+      options.desc = "[H]ugo image [P]ast";
     }
+
   ];
 
 }

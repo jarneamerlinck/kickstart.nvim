@@ -35,6 +35,7 @@ in
     ./config/plugins/custom/floaterm.nix
     ./config/plugins/custom/snacks.nix
     ./config/plugins/custom/git-diff.nix
+    ./config/plugins/custom/hugo.nix
   ];
 
   /*
