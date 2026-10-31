@@ -264,7 +264,7 @@
     } # Hugo
     {
       mode = "n";
-      key = "<leader>Hp";
+      key = "C-p";
       action = "<cmd>PasteImage<CR>";
       options.desc = "[H]ugo image [P]ast";
     }
