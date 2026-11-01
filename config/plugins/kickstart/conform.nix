@@ -5,7 +5,12 @@
   # https://nix-community.github.io/nixvim/NeovimOptions/index.html#extrapackages
   extraPackages = with pkgs; [
     # Used to format Lua code
-    stylua
+    stylua # lua
+    black # python
+    prettier # markdown
+    dockfmt # dockerfile
+    shfmt # bash/sh
+    taplo # Toml
   ];
 
   # Autoformat
@@ -33,7 +38,13 @@
       formatters_by_ft = {
         lua = [ "stylua" ];
         # Conform can also run multiple formatters sequentially
-        # python = [ "isort "black" ];
+        python = [ "black" ];
+        markdown = [ "prettier" ];
+        sh = [ "shfmt" ];
+        bash = [ "shfmt" ];
+        dockerfile = [ "dockfmt" ];
+        toml = [ "taplo" ];
+        yaml = [ "prettier" ];
         #
         # You can use 'stop_after_first' to run the first available formatter from this list
         #javascript = {
